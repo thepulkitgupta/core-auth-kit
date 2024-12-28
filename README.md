@@ -1,11 +1,12 @@
 ## Setup MongoDB Account
-Created / Used a new Account 
-Create a Cluster 
-Download MongoDB and connect to the Cluster
-Create initial database and collections like users,sessions,data etc based on the design plan 
+- Created / Used a new Account 
+- Create a Cluster 
+- Download MongoDB and connect to the Cluster
+- Create initial database and collections like `users`, `sessions`, `data`, etc., based on the design plan.
 
+## Setup Folder Structure for a Client and Server App
 
-## Setup Folder Structure like this for a client and server app
+```plaintext
 /my-project
 │
 ├── /client               # React frontend (Create React App or custom setup)
@@ -25,7 +26,6 @@ Create initial database and collections like users,sessions,data etc based on th
 │   ├── /middleware       # Custom middlewares (e.g., authMiddleware.js)
 │   ├── /utils            # Helper functions (e.g., validation.js, errorHandling.js)
 │   ├── /data             # Seed or mock data (optional)
-│   ├── .env              # Environment variables (Mongo URI, JWT secret)
 │   ├── app.js            # Main server setup (Express app)
 │   └── server.js         # Entry point for starting the server
 │
@@ -34,4 +34,5 @@ Create initial database and collections like users,sessions,data etc based on th
 │
 ├── package.json          # Root package.json (backend and client dependencies)
 ├── package-lock.json     # Lock file for dependencies
+├── .env                  # Environment variables (Mongo URI, JWT secret)
 └── README.md             # Project documentation
