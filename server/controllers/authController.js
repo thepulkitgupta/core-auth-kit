@@ -14,9 +14,15 @@ exports.register = async (req,res)=>{
     const {username,email,password} = req.body; 
 
     //Check if the user already exists
-    const existingUser = await User.findOne({email}); 
-    if(existingUser){
-        return res.status(400).json({message:"User already exists"})
+    const existingUserWithEmail = await User.findOne({email}); 
+    if(existingUserWithEmail){
+        return res.status(400).json({message:"User with same email already exists"})
+    }
+
+    //Check if the user already exists
+    const existingUserWithUsername = await User.findOne({username}); 
+    if(existingUserWithUsername){
+        return res.status(400).json({message:"User with same username already exists"})
     }
 
     //Hash Password before saving 
@@ -64,7 +70,7 @@ exports.login =  async (req,res)=>{
 
 
 /**
- * Dummy Endpoints
+ * Get User auth details
  */
 exports.profile =  async (req,res)=>{
     const {userId} = req.user; 
@@ -75,8 +81,15 @@ exports.profile =  async (req,res)=>{
         return res.status(500).json({message: "User doesn't exist. User might no longer exist in the systerm."});
     }
 
-    return res.status(200).json({'user':user});
+    return res.status(200).json({'message':"User deails retrived successfully",'user':user});
     
 }
 
 
+/**
+ * Verify the JWT Token
+ */
+exports.validate =  async (req,res)=>{
+    return res.status(200).json(true);
+    
+}

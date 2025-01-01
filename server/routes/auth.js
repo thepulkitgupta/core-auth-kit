@@ -15,10 +15,16 @@ router.post('/register',authController.register);
  */
 router.post('/login',authController.login); 
 
+
+//Protected Routes : Inclues authMiddleware to get the token
 /**
- * Protected Route Example 
- * Including authMiddleware in the route ensures that middleware should be used
+ * Get User Details
  */
 router.get('/profile',authMiddleware,authController.profile); 
+
+/**
+ * Validate the token if required
+ */
+router.get('/validate',authMiddleware,authController.validate); 
 
 module.exports = router;

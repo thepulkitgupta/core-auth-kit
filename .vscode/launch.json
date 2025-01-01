@@ -12,6 +12,21 @@
                 "<node_internals>/**"
             ],
             "program": "./server/server.js"
+        },
+        {
+            "name": "Start Chrome For Client ",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder/client}",
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*"
+            },
+            "runtimeArgs": [
+                "--user-data-dir=/var/tmp/chrome-dev-disabled-security",
+                "--disable-web-security",
+                "--disable-site-isolation-trials"
+            ]
         }
     ]
 }
